@@ -20,4 +20,4 @@ This is a simple app to view list of news using:
 
 (**NOTE**: use your own **API_KEY** from News Api, then define it inside your gradle.properties)
 
-![image-20210930115541606](C:\Users\abyal\AppData\Roaming\Typora\typora-user-images\image-20210930115541606.png)
+![gradle.properties](https://drive.google.com/uc?export=view&id=16b3xaHPw-VFOESRSlUNhZKG2u17tKlrI)
