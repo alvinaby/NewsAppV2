@@ -16,5 +16,8 @@ This is a simple app to view list of news using:
 * App theme (3 settings: system, light, and dark)
 
 #### API used:
-(NOTE: use your own **API_KEY** from News Api, then define it inside your gradle.properties):
-* https://newsapi.org/v2/top-headlines?country=id&apiKey=API_KEY
+* Indonesian news: https://newsapi.org/v2/top-headlines?country=id&apiKey=API_KEY
+
+(**NOTE**: use your own **API_KEY** from News Api, then define it inside your gradle.properties)
+
+![image-20210930115541606](C:\Users\abyal\AppData\Roaming\Typora\typora-user-images\image-20210930115541606.png)
