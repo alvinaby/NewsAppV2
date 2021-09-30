@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alvinaby.newsappv2.MainActivity">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/greetings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/product_sans_bold"
+            android:padding="16dp"
+            android:text="@string/appName"
+            android:textColor="@color/text"
+            android:textSize="18sp"/>
+
+        <!-- Space -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Theme -->
+        <Button
+            android:id="@+id/themeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@android:color/transparent"
+            android:text="@string/theme"
+            android:textColor="@color/text"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <!-- News List -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshNews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_above="@id/navbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/newsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/news_item"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/navbarBg"
+        app:itemIconTint="@color/navbar_button_color"
+        app:itemTextColor="@color/navbar_button_color"
+        app:menu="@menu/navbar_button"/>
+
+</RelativeLayout>

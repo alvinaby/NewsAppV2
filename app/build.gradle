@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "com.alvinaby.newsapp"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments << ["dagger.gradle.incremental": "true"]
+            }
+        }
+        buildConfigField 'String', 'NewsApiKey', NewsApiKey ?: 'Define the NewsApiKey in gradle.properties!'
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlinVersion}"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintLayoutVersion}"
+    implementation "androidx.legacy:legacy-support-v4:${rootProject.ext.legacySupportVersion}"
+    implementation "com.google.android.material:material:${rootProject.ext.materialVersion}"
+    implementation "com.android.support:multidex:${rootProject.ext.multiDexVersion}"
+
+    testImplementation "junit:junit:${rootProject.ext.junitVersion}"
+    androidTestImplementation "androidx.test.ext:junit:${rootProject.ext.junitTestVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.ext.espressoCoreVersion}"
+
+    //Material Design
+    implementation "com.android.support:design:${rootProject.ext.materialDesignVersion}"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofitVersion}"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjavaVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroidVersion}"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:${rootProject.ext.glideVersion}"
+
+    //Room
+    implementation "androidx.room:room-runtime:${rootProject.ext.roomVersion}"
+    implementation "androidx.room:room-rxjava2:${rootProject.ext.roomVersion}"
+    kapt "androidx.room:room-compiler:${rootProject.ext.roomVersion}"
+
+    //Dagger
+    implementation  "com.google.dagger:dagger-android-support:${rootProject.ext.daggerVersion}"
+    kapt "com.google.dagger:dagger-android-processor:${rootProject.ext.daggerVersion}"
+    kapt "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}"
+}

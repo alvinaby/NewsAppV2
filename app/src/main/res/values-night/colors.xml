@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00468b</color>
+    <color name="colorPrimaryDark">#00003F</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="appIconBg">#636582</color>
+
+    <color name="gray">#544D4D</color>
+
+    <!-- Header -->
+    <color name="header">#1A1B1C</color>
+
+    <!-- Navbar -->
+    <color name="navbarBg">#1A1B1C</color>
+    <color name="navbarBtn">#FFFFFF</color>
+    <color name="navbarBtnIdle">#636582</color>
+
+    <!-- Text -->
+    <color name="text">#FFFFFF</color>
+
+    <!-- Icon -->
+    <color name="icon">#FFFFFF</color>
+
+</resources>
