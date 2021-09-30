@@ -7,7 +7,7 @@ plugins {
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "com.alvinaby.newsapp"
+        applicationId "com.alvinaby.newsappv2"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
