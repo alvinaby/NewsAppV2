@@ -13,6 +13,7 @@
         <entry key="..\:/Learn-Android/NewsApp/app/src/main/res/menu/navbar_button.xml" value="0.1597222222222222" />
         <entry key="..\:/Learn-Android/NewsApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16666666666666666" />
         <entry key="..\:/Learn-Android/NewsApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.17407407407407408" />
+        <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/drawable/ic_account_circle.xml" value="0.17037037037037037" />
         <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/drawable/ic_close.xml" value="0.1" />
         <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/drawable/ic_newspaper.xml" value="0.1" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/layout/activity_main.xml" value="0.1597222222222222" />
         <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/layout/activity_webview.xml" value="0.16666666666666666" />
         <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/layout/news_item.xml" value="0.22" />
+        <entry key="..\:/Learn-Android/NewsAppV2/app/src/main/res/menu/navbar_button.xml" value="0.1" />
       </map>
     </option>
   </component>
