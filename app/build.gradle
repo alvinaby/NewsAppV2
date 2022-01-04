@@ -55,6 +55,9 @@ dependencies {
     //Material Design
     implementation "com.android.support:design:${rootProject.ext.materialDesignVersion}"
 
+    //Chrome Custom Tabs
+    implementation "androidx.browser:browser:1.4.0"
+
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"

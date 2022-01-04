@@ -1,12 +1,18 @@
 package com.alvinaby.newsappv2
 
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alvinaby.newsappv2.databinding.ActivityMainBinding
 import com.alvinaby.newsappv2.di.AppModule
@@ -97,6 +103,38 @@ class MainActivity : AppCompatActivity(), ViewInterface {
     }
 
     override fun openNews(url: String) {
-        startActivity(Intent(this, WebViewActivity::class.java).putExtra("URL", url))
+        //Chrome Custom Tabs
+        val params = CustomTabColorSchemeParams.Builder()
+        params.setToolbarColor(ContextCompat.getColor(this@MainActivity, R.color.header))
+
+        val builder = CustomTabsIntent.Builder()
+            .setDefaultColorSchemeParams(params.build())
+            .setShowTitle(true)
+            .setInstantAppsEnabled(true)
+            .setShareState(CustomTabsIntent.SHARE_STATE_ON)
+
+        val customTabs = builder.build()
+
+        //Use Custom Tabs if Chrome is installed, or use Webview if Chrome is not installed
+        if (this.isPackageInstalled(package_name)) {
+            customTabs.intent.setPackage(package_name)
+            customTabs.launchUrl(this, Uri.parse(url))
+        } else {
+            startActivity(Intent(this, WebViewActivity::class.java).putExtra("URL", url))
+        }
+
+    }
+
+    private fun Context.isPackageInstalled(packageName: String): Boolean {
+        return try {
+            packageManager.getPackageInfo(packageName, 0)
+            true
+        } catch (e: PackageManager.NameNotFoundException) {
+            false
+        }
+    }
+
+    companion object {
+        var package_name = "com.android.chrome"
     }
 }

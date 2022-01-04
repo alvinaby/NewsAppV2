@@ -13,6 +13,26 @@
         android:background="@color/header"
         android:orientation="horizontal">
 
+        <!-- Close -->
+        <ImageButton
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_close"
+            android:textColor="@color/text"
+            android:textAllCaps="false"
+            android:contentDescription="@string/close"
+            app:tint="@color/icon" />
+
+        <!-- Space -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"/>
+
         <TextView
             android:id="@+id/webviewTitle"
             android:layout_width="wrap_content"
@@ -28,20 +48,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"/>
-
-        <!-- Theme -->
-        <ImageButton
-            android:id="@+id/closeBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="16dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_close"
-            android:textColor="@color/text"
-            android:textAllCaps="false"
-            android:contentDescription="@string/close"
-            app:tint="@color/icon" />
 
     </LinearLayout>
 
