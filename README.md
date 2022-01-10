@@ -8,7 +8,8 @@ This is a simple app to view list of news using:
 * Glide
 * Room Persistence **(in progress)**
 * Dagger2
-* **(NEW)** View Binding to replace Kotlin Android Extensions library
+* View Binding to replace Kotlin Android Extensions library
+* **(NEW)** Chrome Custom Tabs to open news source, WebView still included in case there is no Chrome app installed
 
 #### NewsApp functions:
 * View list of news from **https://newsapi.org**
