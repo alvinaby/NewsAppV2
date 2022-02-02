@@ -116,8 +116,8 @@ class MainActivity : AppCompatActivity(), ViewInterface {
         val customTabs = builder.build()
 
         //Use Custom Tabs if Chrome is installed, or use Webview if Chrome is not installed
-        if (this.isPackageInstalled(package_name)) {
-            customTabs.intent.setPackage(package_name)
+        if (this.isPackageInstalled(package_chrome)) {
+            customTabs.intent.setPackage(package_chrome)
             customTabs.launchUrl(this, Uri.parse(url))
         } else {
             startActivity(Intent(this, WebViewActivity::class.java).putExtra("URL", url))
@@ -125,6 +125,7 @@ class MainActivity : AppCompatActivity(), ViewInterface {
 
     }
 
+    //Check if package (app destination) is installed or not
     private fun Context.isPackageInstalled(packageName: String): Boolean {
         return try {
             packageManager.getPackageInfo(packageName, 0)
@@ -135,6 +136,6 @@ class MainActivity : AppCompatActivity(), ViewInterface {
     }
 
     companion object {
-        var package_name = "com.android.chrome"
+        var package_chrome = "com.android.chrome"
     }
 }

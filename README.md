@@ -9,7 +9,7 @@ This is a simple app to view list of news using:
 * Room Persistence **(in progress)**
 * Dagger2
 * View Binding to replace Kotlin Android Extensions library
-* **(NEW)** Chrome Custom Tabs to open news source, WebView still included in case there is no Chrome app installed
+* **(NEW)** Chrome Custom Tabs to open news source, WebView still included in case the Chrome browser is not installed
 
 #### NewsApp functions:
 * View list of news from **https://newsapi.org**
