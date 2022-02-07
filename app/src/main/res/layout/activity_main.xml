@@ -32,15 +32,15 @@
             android:layout_weight="1"/>
 
         <!-- Theme -->
-        <Button
+        <ImageButton
             android:id="@+id/themeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:background="@android:color/transparent"
-            android:text="@string/theme"
-            android:textColor="@color/text"
-            android:textAllCaps="false"/>
+            android:src="@drawable/ic_theme"
+            android:contentDescription="@string/theme"
+            app:tint="@color/icon"/>
 
     </LinearLayout>
 
@@ -71,6 +71,6 @@
         android:background="@color/navbarBg"
         app:itemIconTint="@color/navbar_button_color"
         app:itemTextColor="@color/navbar_button_color"
-        app:menu="@menu/navbar_button"/>
+        app:menu="@menu/navbar_button" />
 
 </RelativeLayout>

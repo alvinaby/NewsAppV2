@@ -4,5 +4,5 @@ import com.alvinaby.newsappv2.model.Responses
 import io.reactivex.Observable
 
 interface NewsRepoInterface {
-    fun getNews(): Observable<Responses>
+    fun getNews(country: String): Observable<Responses>
 }

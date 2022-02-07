@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity(), ViewInterface {
         binding.navbar.setOnItemSelectedListener { menu ->
             when (menu.itemId) {
                 R.id.home -> binding.newsView.smoothScrollToPosition(0)
-                R.id.search -> Toast.makeText(this, "Search", Toast.LENGTH_SHORT).show()
-                R.id.account -> Toast.makeText(this, "Account", Toast.LENGTH_SHORT).show()
+                R.id.search -> Toast.makeText(this, "Coming Soon!", Toast.LENGTH_SHORT).show()
+                R.id.settings -> Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
             }
             true
         }
