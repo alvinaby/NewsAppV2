@@ -4,6 +4,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alvinaby.newsappv2.databinding.NewsItemBinding
 import com.alvinaby.newsappv2.model.Articles
 import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsViewHolder(private val binding: NewsItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(articles: Articles) {
@@ -20,7 +22,9 @@ class NewsViewHolder(private val binding: NewsItemBinding) : RecyclerView.ViewHo
         binding.newsSource.text = articles.source?.name ?: "No source"
 
         // Date published
-        binding.datePublished.text = articles.publishedAt.toString()
+        val formatter = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale("id"))
+        val datePublished = formatter.format(articles.publishedAt ?: "")
+        binding.datePublished.text = datePublished
 
         // Open News
         itemView.setOnClickListener {
