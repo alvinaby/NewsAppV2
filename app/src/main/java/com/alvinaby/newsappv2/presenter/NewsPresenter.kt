@@ -1,7 +1,6 @@
 package com.alvinaby.newsappv2.presenter
 
 import android.content.Context
-import android.view.Gravity
 import android.widget.Toast
 import com.alvinaby.newsappv2.repository.NewsRepo
 import com.alvinaby.newsappv2.view.ViewInterface
