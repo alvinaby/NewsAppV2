@@ -89,16 +89,12 @@ class MainActivity : AppCompatActivity(), ViewInterface {
     }
 
     override fun onError() {
-        val toast = Toast.makeText(this, "No news found", Toast.LENGTH_LONG)
-        toast.setGravity(Gravity.CENTER, 0, 0)
-        toast.show()
+        Toast.makeText(this, "No news found", Toast.LENGTH_LONG).show()
     }
 
     override fun onNetworkChanged(isConnected: Boolean) {
         if (!isConnected) {
-            val toast = Toast.makeText(this, "No network connection", Toast.LENGTH_SHORT)
-            toast.setGravity(Gravity.CENTER, 0, 0)
-            toast.show()
+            Toast.makeText(this, "No network connection", Toast.LENGTH_SHORT).show()
         }
     }
 

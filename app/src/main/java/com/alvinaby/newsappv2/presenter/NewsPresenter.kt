@@ -17,9 +17,7 @@ class NewsPresenter @Inject constructor (
     private var disposable: Disposable? = null
 
     override fun loadNews() {
-        val toast = Toast.makeText(context, "Loading news", Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER, 0, 0)
-        toast.show()
+        Toast.makeText(context, "Loading news", Toast.LENGTH_SHORT).show()
 
         //get Indonesia top headline news
          disposable = newsRepo.getNews("id").subscribe(
