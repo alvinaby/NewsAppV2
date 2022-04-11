@@ -12,8 +12,8 @@
         android:icon="@drawable/ic_search"/>
 
     <item
-        android:id="@+id/settings"
-        android:title="@string/settings"
-        android:icon="@drawable/ic_settings"/>
+        android:id="@+id/account"
+        android:title="@string/account"
+        android:icon="@drawable/ic_account"/>
 
 </menu>

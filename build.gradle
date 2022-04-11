@@ -2,21 +2,21 @@
 
 buildscript {
     ext {
-        gradleVersion = '7.1.2'
-        kotlinVersion = '1.6.10'
+        gradleVersion = '7.1.3'
+        kotlinVersion = '1.6.20'
         appCompatVersion = '1.4.1'
         constraintLayoutVersion = '2.1.3'
         legacySupportVersion = '1.0.0'
         materialVersion = '1.5.0'
         multiDexVersion = '1.0.3'
 
-        junitVersion = '4.13.1'
+        junitVersion = '4.13.2'
         junitTestVersion = '1.1.3'
         espressoCoreVersion = '3.4.0'
 
         materialDesignVersion = '29.0.0'
         retrofitVersion = '2.9.0'
-        rxjavaVersion = '2.2.20'
+        rxjavaVersion = '2.2.21'
         rxandroidVersion = '2.1.1'
         glideVersion = '4.12.0'
         roomVersion = '2.4.2'

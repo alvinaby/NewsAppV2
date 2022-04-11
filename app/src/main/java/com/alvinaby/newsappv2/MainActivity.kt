@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), ViewInterface {
             when (menu.itemId) {
                 R.id.home -> binding.newsView.smoothScrollToPosition(0)
                 R.id.search -> Toast.makeText(this, "Coming Soon!", Toast.LENGTH_SHORT).show()
-                R.id.settings -> Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
+                R.id.account -> Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
             }
             true
         }
