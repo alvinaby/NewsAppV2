@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity(), ActivityViewInterface {
         if (savedInstanceState == null)
             openFragment(HomeFragment.newInstance())
 
+        //Navigate fragments
+        navFragment()
+
         //Theme
         val themeUtils = ThemeUtils(this)
         themeUtils.checkTheme()
@@ -44,9 +47,6 @@ class MainActivity : AppCompatActivity(), ActivityViewInterface {
         @Suppress("DEPRECATION")
         val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         registerReceiver(NetworkUtils(this), intentFilter)
-
-        //Navigate fragments
-        navFragment()
     }
 
     private fun openFragment(fragment: Fragment) {
