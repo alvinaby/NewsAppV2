@@ -4,11 +4,11 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import com.alvinaby.newsappv2.view.ViewInterface
+import com.alvinaby.newsappv2.view.ActivityViewInterface
 
-class NetworkUtils(private val view: ViewInterface): BroadcastReceiver() {
+class NetworkUtils(private val activityView: ActivityViewInterface): BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        view.onNetworkChanged(isConnected(context!!))
+        activityView.onNetworkChanged(isConnected(context!!))
     }
 
     @Suppress("DEPRECATION")

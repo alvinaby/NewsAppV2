@@ -3,13 +3,13 @@ package com.alvinaby.newsappv2.presenter
 import android.content.Context
 import android.widget.Toast
 import com.alvinaby.newsappv2.repository.NewsRepo
-import com.alvinaby.newsappv2.view.ViewInterface
+import com.alvinaby.newsappv2.view.FragmentViewInterface
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 class NewsPresenter @Inject constructor (
     private val context: Context,
-    private val view: ViewInterface,
+    private val view: FragmentViewInterface,
     private val newsRepo: NewsRepo
 ) : NewsPresenterInterface {
 

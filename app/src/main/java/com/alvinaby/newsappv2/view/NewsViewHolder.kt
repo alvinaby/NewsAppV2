@@ -28,7 +28,7 @@ class NewsViewHolder(private val binding: NewsItemBinding) : RecyclerView.ViewHo
 
         // Open News
         itemView.setOnClickListener {
-            articles.url?.let { (itemView.context as ViewInterface).openNews(it) }
+            articles.url?.let { (itemView.context as ActivityViewInterface).openNews(it) }
         }
     }
 }

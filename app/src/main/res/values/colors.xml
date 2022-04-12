@@ -9,10 +9,10 @@
     <color name="gray">#544D4D</color>
 
     <!-- Header -->
-    <color name="header">#F0FFFF</color>
+    <color name="header">#E8FFFF</color>
 
     <!-- Navbar -->
-    <color name="navbarBg">#F0FFFF</color>
+    <color name="navbarBg">#E8FFFF</color>
     <color name="navbarBtn">#000000</color>
     <color name="navbarBtnIdle">#636582</color>
 

@@ -1,4 +1,4 @@
-package com.alvinaby.newsappv2
+package com.alvinaby.newsappv2.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

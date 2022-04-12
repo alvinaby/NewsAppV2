@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.alvinaby.newsappv2.MainActivity">
+    tools:context="com.alvinaby.newsappv2.activity.MainActivity">
 
     <!-- Header -->
     <LinearLayout
@@ -44,23 +44,13 @@
 
     </LinearLayout>
 
-    <!-- News List -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/refreshNews"
+    <!-- Display Fragments -->
+    <FrameLayout
+        android:id="@+id/contentFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header"
-        android:layout_above="@id/navbar">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/newsView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:clipToPadding="false"
-            tools:listitem="@layout/news_item"/>
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        android:layout_above="@id/navbar"
+        android:layout_below="@id/header" />
 
     <!-- Navigation Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -69,8 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/navbarBg"
-        app:itemIconTint="@color/navbar_button_color"
-        app:itemTextColor="@color/navbar_button_color"
-        app:menu="@menu/navbar_button"/>
+        app:itemIconTint="@color/navbar_color"
+        app:itemTextColor="@color/navbar_color"
+        app:menu="@menu/navbar"/>
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.alvinaby.newsappv2
+package com.alvinaby.newsappv2.activity
 
 import android.content.Context
 import android.content.Intent
@@ -12,20 +12,17 @@ import android.widget.Toast
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import com.alvinaby.newsappv2.R
 import com.alvinaby.newsappv2.databinding.ActivityMainBinding
-import com.alvinaby.newsappv2.di.AppModule
-import com.alvinaby.newsappv2.di.DaggerAppComponent
-import com.alvinaby.newsappv2.model.Responses
-import com.alvinaby.newsappv2.presenter.NewsPresenter
+import com.alvinaby.newsappv2.fragment.AccountFragment
+import com.alvinaby.newsappv2.fragment.HomeFragment
+import com.alvinaby.newsappv2.fragment.SearchFragment
 import com.alvinaby.newsappv2.utils.NetworkUtils
 import com.alvinaby.newsappv2.utils.ThemeUtils
-import com.alvinaby.newsappv2.view.NewsAdapter
-import com.alvinaby.newsappv2.view.ViewInterface
-import javax.inject.Inject
+import com.alvinaby.newsappv2.view.ActivityViewInterface
 
-class MainActivity : AppCompatActivity(), ViewInterface {
-    @Inject lateinit var newsPresenter: NewsPresenter
+class MainActivity : AppCompatActivity(), ActivityViewInterface {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -34,66 +31,48 @@ class MainActivity : AppCompatActivity(), ViewInterface {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Launch HomeFragment first
+        if (savedInstanceState == null)
+            openFragment(HomeFragment.newInstance())
+
         //Theme
         val themeUtils = ThemeUtils(this)
         themeUtils.checkTheme()
         binding.themeBtn.setOnClickListener { themeUtils.changeTheme() }
-
-        //Load news list
-        loadNews()
-
-        //Refresh news list
-        binding.refreshNews.setOnRefreshListener {
-            loadNews()
-            binding.refreshNews.isRefreshing = false
-        }
 
         //Detect network
         @Suppress("DEPRECATION")
         val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         registerReceiver(NetworkUtils(this), intentFilter)
 
-        //Navigation Bar
+        //Navigate fragments
+        navFragment()
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.contentFragment, fragment, fragment.javaClass.simpleName)
+            .commit()
+    }
+
+    private fun navFragment() {
         binding.navbar.setOnItemSelectedListener { menu ->
             when (menu.itemId) {
-                R.id.home -> binding.newsView.smoothScrollToPosition(0)
-                R.id.search -> Toast.makeText(this, "Coming Soon!", Toast.LENGTH_SHORT).show()
-                R.id.account -> Toast.makeText(this, "Coming soon!", Toast.LENGTH_SHORT).show()
+                R.id.home -> {
+                    openFragment(HomeFragment.newInstance())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.search -> {
+                    openFragment(SearchFragment.newInstance())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.account -> {
+                    openFragment(AccountFragment.newInstance())
+                    return@setOnItemSelectedListener true
+                }
             }
-            true
-        }
-    }
-
-    private fun loadNews() {
-        val appComponent = DaggerAppComponent.builder()
-            .appModule(AppModule(this, this))
-            .build()
-
-        appComponent.inject(this)
-        newsPresenter.loadNews()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        newsPresenter.disposeNews()
-    }
-
-    override fun onSuccess(responses: Responses){
-        val bindView = binding.newsView
-        val articles = responses.articles
-
-        bindView.setHasFixedSize(true)
-        bindView.layoutManager = LinearLayoutManager(this)
-        bindView.adapter = articles?.let { NewsAdapter(it) }
-    }
-
-    override fun onError() {
-        Toast.makeText(this, "No news found", Toast.LENGTH_LONG).show()
-    }
-
-    override fun onNetworkChanged(isConnected: Boolean) {
-        if (!isConnected) {
-            Toast.makeText(this, "No network connection", Toast.LENGTH_SHORT).show()
+            false
         }
     }
 
@@ -127,6 +106,12 @@ class MainActivity : AppCompatActivity(), ViewInterface {
             true
         } catch (e: PackageManager.NameNotFoundException) {
             false
+        }
+    }
+
+    override fun onNetworkChanged(isConnected: Boolean) {
+        if (!isConnected) {
+            Toast.makeText(this, "No network connection", Toast.LENGTH_LONG).show()
         }
     }
 

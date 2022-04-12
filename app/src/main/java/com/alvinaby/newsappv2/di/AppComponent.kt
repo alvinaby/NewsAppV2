@@ -1,11 +1,11 @@
 package com.alvinaby.newsappv2.di
 
-import com.alvinaby.newsappv2.MainActivity
+import com.alvinaby.newsappv2.fragment.HomeFragment
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
-    fun inject(mainActivity: MainActivity)
+    fun inject(homeFragment: HomeFragment)
 }
